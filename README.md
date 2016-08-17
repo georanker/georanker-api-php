@@ -6,25 +6,27 @@
 
 include("GeoRankerAPI.php");
 
-$grapi = new GeoRankerAPI("email@example.com", "yourapikey");
+$grapi = new GeoRankerAPI("email@renangomes.com", "4cc6576d874bf61a4bac8effaf82c9d8");
 $loginobj = $grapi->login();
-if (empty($loginobj) || isset($loginobj->debug)) {
-	die("Error: " . isset($loginobj->msg) ? $loginobj->msg : 'Error on login object.');
+if (empty($loginobj) || isset($loginobj->msg)) {
+	echo json_encode($loginobj, JSON_PRETTY_PRINT);
+	exit;
 }
 
-$reportid = 12345; 
+$reportid = 1117597; 
 
 $reportobj = $grapi->reportget($reportid);
 
-if (empty($reportobj) || isset($reportobj->debug)) {
-	die("Error: " . isset($reportobj->msg) ? $reportobj->msg : 'Error on report object.');
+if (empty($reportobj) || isset($reportobj->msg)) {
+	echo json_encode($reportobj, JSON_PRETTY_PRINT);
+	exit;
 }
 
 if (empty($reportobj->is_pending)) {
 	// Handle the report object...
-	var_dump($reportobj);
+	echo json_encode($reportobj, JSON_PRETTY_PRINT);
 } else {
 	// The report is still pending.
-	var_dump($reportobj);
+	echo json_encode($reportobj, JSON_PRETTY_PRINT); // Just show a JSON string 
 }
 ```
