@@ -6,7 +6,7 @@
 
 include("GeoRankerAPI.php");
 
-$grapi = new GeoRankerAPI("email@renangomes.com", "4cc6576d874bf61a4bac8effaf82c9d8");
+$grapi = new GeoRankerAPI("email", "apikey");
 $loginobj = $grapi->login();
 if (empty($loginobj) || isset($loginobj->msg)) {
 	echo json_encode($loginobj, JSON_PRETTY_PRINT);
