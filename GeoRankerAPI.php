@@ -12,7 +12,7 @@ if (!class_exists("GeoRankerAPI")) {
         private $email = null;
         private $apikey = null;
         private $session = null;
-        private $apiurl = "http://api.georanker.com/v2";
+        private $apiurl = "https://api.georanker.com/v2";
         private $cachefolder = null;
         private $cache = true;
         private $cachetime = 60;
